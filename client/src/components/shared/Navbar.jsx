@@ -3,20 +3,21 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  Sparkles, 
-  Compass, 
-  Home, 
-  LayoutDashboard, 
-  LogIn, 
-  UserPlus, 
-  Menu, 
-  X, 
+import {
+  Sparkles,
+  Compass,
+  Home,
+  LayoutDashboard,
+  LogIn,
+  UserPlus,
+  Menu,
+  X,
   Search,
   Zap,
   Bookmark
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getClientSession } from "@/lib/authentication/client-session";
 
 // Navigation items array
 const navLinks = [
@@ -26,22 +27,27 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const session = getClientSession();
+  const isLoggedIn = session?.user;
+
+
 
   // Hardcoded preview state (change to true to preview logged-in state)
-  const isLoggedIn = false;
   const user = {
     name: "Alex Johnson",
     email: "alex@example.com",
     role: "Creator",
     isPremium: true,
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
+
         {/* Brand Logo & Name */}
         <Link href="/" className="group flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.02]">
           <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-primary via-indigo-500 to-violet-400 p-0.5 shadow-lg shadow-primary/25">
@@ -170,22 +176,33 @@ export default function Navbar() {
               );
             })}
 
-            <div className="my-2 border-t border-border pt-4">
-              <div className="flex flex-col gap-2">
-                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full justify-center">
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Sign In
+            {
+              isLoggedIn ?
+                <Link href="/dashboard">
+                  <Button variant="outline" size="sm" className="gap-1.5 border-border">
+                    <LayoutDashboard className="h-4 w-4 text-primary" />
+                    Dashboard
                   </Button>
                 </Link>
-                <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full justify-center ai-glow-button text-white border-0">
-                    <UserPlus className="h-4 w-4 mr-2" />
-                    Get Started
-                  </Button>
-                </Link>
-              </div>
-            </div>
+
+                :
+                <div className="my-2 border-t border-border pt-4">
+                  <div className="flex flex-col gap-2">
+                    <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                      <Button variant="outline" className="w-full justify-center">
+                        <LogIn className="h-4 w-4 mr-2" />
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
+                      <Button className="w-full justify-center ai-glow-button text-white border-0">
+                        <UserPlus className="h-4 w-4 mr-2" />
+                        Get Started
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+            }
           </div>
         </div>
       )}
