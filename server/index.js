@@ -1,15 +1,12 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import morgan from 'morgan';
-import connectDB from './config/db.js';
-import sampleRoutes from './routes/sampleRoutes.js';
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const morgan = require('morgan');
+const { client, connectDB } = require('./config/db.js');
+const test = require('./routes/sampleRoutes.js');
 
 // Load environment variables
 dotenv.config();
-
-// Connect to Database
-connectDB();
 
 const app = express();
 
@@ -18,13 +15,16 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// Routes
-app.use('/api', sampleRoutes);
+// Connect to Database 
+connectDB();
 
-// Base Route
-app.get('/', (req, res) => {
-  res.send('MERN Boilerplate API is running...');
-});
+// Database reference
+const db = client.db("AiPromts");
+
+
+// Routes
+app.use('/api', test);
+
 
 const PORT = process.env.PORT || 5000;
 
