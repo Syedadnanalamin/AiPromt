@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 export const metadata = {
   title: "PromptMatrix | AI Prompt Marketplace & Community",
@@ -12,9 +13,8 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
 }
-
-
