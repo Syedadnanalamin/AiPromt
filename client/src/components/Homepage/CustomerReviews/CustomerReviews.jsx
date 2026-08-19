@@ -46,13 +46,13 @@ export const initialReviews = [
 
 export default function CustomerReviews() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[130px]" />
       </div>
 
       <div className="container mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
             <Sparkles className="h-3.5 w-3.5" />
             Loved by 50,000+ AI Builders

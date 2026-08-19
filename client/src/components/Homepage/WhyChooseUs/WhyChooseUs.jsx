@@ -56,7 +56,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       {/* Background Glow */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[140px]" />
@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
 
       <div className="container mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
             <Sparkles className="h-3.5 w-3.5" />
             Why Choose PromptMatrix

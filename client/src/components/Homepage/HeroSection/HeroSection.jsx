@@ -50,7 +50,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden pt-10 pb-12 sm:pt-14 sm:pb-14">
       {/* Background Glows */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[550px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-primary/20 via-indigo-500/15 to-violet-600/10 blur-[130px]" />

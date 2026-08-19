@@ -130,10 +130,10 @@ export const initialFeaturedPrompts = [
 
 export default function FeaturedPrompts() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/40">
+    <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/40">
       <div className="container mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-3">
               <Sparkles className="h-3.5 w-3.5" />
