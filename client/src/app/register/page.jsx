@@ -15,8 +15,10 @@ import {
   ArrowRight,
   CheckCircle2,
   AlertCircle,
-  Loader2
+  Loader2,
+  Shield,
 } from "lucide-react";
+
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -43,6 +45,7 @@ export default function RegisterPage() {
       name: "",
       email: "",
       photoURL: "",
+      userType: "user",
       password: "",
       confirmPassword: "",
     },
@@ -64,8 +67,10 @@ export default function RegisterPage() {
         email: data.email,
         password: data.password,
         image: data.photoURL || undefined,
+        userType: data.userType || "user",
         callbackURL: "/login",
       });
+
 
       if (res?.error) {
         setServerError(res.error.message || "Failed to create account. Please try again.");
@@ -235,6 +240,34 @@ export default function RegisterPage() {
                   </p>
                 )}
               </div>
+
+              {/* Account Type / Role */}
+              <div className="space-y-1.5">
+                <Label htmlFor="userType" className="text-xs font-medium">
+                  Account Type <span className="text-destructive">*</span>
+                </Label>
+                <div className="relative">
+                  <Shield className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <select
+                    id="userType"
+                    disabled={isLoading}
+                    className="w-full rounded-md border border-input bg-background pl-9 pr-3 h-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+                    {...register("userType", {
+                      required: "Please select an account type",
+                    })}
+                  >
+                    <option value="user">User (Discover & bookmark prompts)</option>
+                    <option value="creator">Creator (Sell & create prompts)</option>
+                    <option value="admin">Admin (Manage platform & prompts)</option>
+                  </select>
+                </div>
+                {errors.userType && (
+                  <p className="text-[11px] font-medium text-destructive">
+                    {errors.userType.message}
+                  </p>
+                )}
+              </div>
+
 
               {/* Password */}
               <div className="space-y-1.5">
