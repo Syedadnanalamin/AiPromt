@@ -13,6 +13,7 @@ const AllPromtsPage = async () => {
 
   try {
     const res = await getAllpromts();
+    console.log(res);
     prompts = Array.isArray(res) ? res : res?.data || [];
   } catch (error) {
     console.error("Failed to fetch prompts in AllPromtsPage:", error);
