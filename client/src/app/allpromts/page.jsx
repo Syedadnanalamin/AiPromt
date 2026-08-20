@@ -13,7 +13,7 @@ const AllPromtsPage = async () => {
 
   try {
     const res = await getAllpromts();
-    console.log(res);
+
     prompts = Array.isArray(res) ? res : res?.data || [];
   } catch (error) {
     console.error("Failed to fetch prompts in AllPromtsPage:", error);
@@ -30,7 +30,7 @@ const AllPromtsPage = async () => {
             Discover & Explore
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            All AI <span className="ai-gradient-text">Prompts</span>
+            All <span className="ai-gradient-text">Prompts</span>
           </h1>
           <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl">
             Explore carefully crafted, battle-tested AI prompts for ChatGPT, Claude, Midjourney, and Gemini. Search by keyword or filter by tool and category.
