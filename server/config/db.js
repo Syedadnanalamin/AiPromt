@@ -20,7 +20,18 @@ const connectDB = async () => {
   }
 };
 
+// database and collections references
+const db = client.db("AiPromts");
+const allPromtsCollection = db.collection("allPromts");
+
+
+
+
+
+
+
 module.exports = {
   connectDB,
-  client
+  client,
+  allPromtsCollection
 };

@@ -3,8 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan');
 const { client, connectDB } = require('./config/db.js');
-const test = require('./routes/sampleRoutes.js');
-
+const allpromtsRoutes = require('./routes/allpromtsRoutes.js');
 // Load environment variables
 dotenv.config();
 
@@ -18,12 +17,10 @@ app.use(morgan('dev'));
 // Connect to Database 
 connectDB();
 
-// Database reference
-const db = client.db("AiPromts");
-
-
 // Routes
-app.use('/api', test);
+
+
+app.use("/api/allpromts", allpromtsRoutes)
 
 
 const PORT = process.env.PORT || 5000;
@@ -31,3 +28,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running in development mode on port ${PORT}`);
 });
+
+

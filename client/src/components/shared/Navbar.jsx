@@ -31,7 +31,7 @@ import NavLink from "@/components/Navlink/Navlink";
 // Navigation items array
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
-  { label: "All Prompts", href: "/prompts", icon: Compass },
+  { label: "All Prompts", href: "/allpromts", icon: Compass },
   { label: "AI Tools", href: "/categories", icon: Zap },
 ];
 
@@ -44,6 +44,7 @@ export default function Navbar() {
   const session = getClientSession();
   const isLoggedIn = !!session?.user;
   const user = session?.user;
+
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -183,9 +184,8 @@ export default function Navbar() {
                     </div>
                   )}
                   <ChevronDown
-                    className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${
-                      profileDropdownOpen ? "rotate-180 text-foreground" : ""
-                    }`}
+                    className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${profileDropdownOpen ? "rotate-180 text-foreground" : ""
+                      }`}
                   />
                 </button>
 
