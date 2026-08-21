@@ -32,7 +32,7 @@ import NavLink from "@/components/Navlink/Navlink";
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
   { label: "All Prompts", href: "/allpromts", icon: Compass },
-  { label: "AI Tools", href: "/categories", icon: Zap },
+
 ];
 
 export default function Navbar() {
