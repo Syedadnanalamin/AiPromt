@@ -167,7 +167,7 @@ export default function PromptForm({
               <Label className="text-xs font-semibold">
                 Difficulty Level <span className="text-destructive">*</span>
               </Label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-[1fr_1.35fr_0.8fr] gap-1.5">
                 {["Beginner", "Intermediate", "Pro"].map((level) => {
                   const isSelected = formData.difficulty === level;
                   return (
@@ -175,11 +175,10 @@ export default function PromptForm({
                       key={level}
                       type="button"
                       onClick={() => setFormData({ ...formData, difficulty: level })}
-                      className={`py-2 px-2.5 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
-                        isSelected
-                          ? "bg-primary text-white border-primary shadow-sm shadow-primary/20 font-semibold"
-                          : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-                      }`}
+                      className={`py-2 px-1 rounded-lg text-xs font-medium border text-center whitespace-nowrap transition-all cursor-pointer ${isSelected
+                        ? "bg-primary text-white border-primary shadow-sm shadow-primary/20 font-semibold"
+                        : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
+                        }`}
                     >
                       {level}
                     </button>
@@ -197,11 +196,10 @@ export default function PromptForm({
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, visibility: "Public" })}
-                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
-                    formData.visibility === "Public"
-                      ? "bg-emerald-600 text-white border-emerald-600 shadow-sm shadow-emerald-600/20 font-semibold"
-                      : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  }`}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${formData.visibility === "Public"
+                    ? "bg-emerald-600 text-white border-emerald-600 shadow-sm shadow-emerald-600/20 font-semibold"
+                    : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
                 >
                   <Globe className="h-3.5 w-3.5" />
                   Public (Free)
@@ -210,11 +208,10 @@ export default function PromptForm({
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, visibility: "Private" })}
-                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
-                    formData.visibility === "Private"
-                      ? "bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-600/20 font-semibold"
-                      : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  }`}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border transition-all cursor-pointer ${formData.visibility === "Private"
+                    ? "bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-600/20 font-semibold"
+                    : "bg-muted/40 border-border/80 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
                 >
                   <Lock className="h-3.5 w-3.5" />
                   Private (Pro)
@@ -241,9 +238,8 @@ export default function PromptForm({
               value={formData.description}
               onChange={handleChange}
               placeholder="Provide a 1-2 sentence overview of what problem this prompt solves and the expected output..."
-              className={`w-full rounded-lg border border-input bg-background p-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none ${
-                formErrors.description ? "border-destructive focus-visible:ring-destructive/30" : ""
-              }`}
+              className={`w-full rounded-lg border border-input bg-background p-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none ${formErrors.description ? "border-destructive focus-visible:ring-destructive/30" : ""
+                }`}
             />
             {formErrors.description && (
               <p className="text-[11px] font-medium text-destructive flex items-center gap-1">
@@ -301,9 +297,8 @@ export default function PromptForm({
               value={formData.content}
               onChange={handleChange}
               placeholder={`You are an expert copywriter with 10+ years of experience.\n\nYour task is to write a high-converting landing page headline and subheadline for [Topic].\n\nTarget Audience: [Target Audience]\nTone of Voice: [Tone of Voice]\n\nFollow these guidelines:\n1. Focus on clear benefits over features.\n2. Keep headline under 10 words.\n3. Include a compelling call-to-action.`}
-              className={`w-full rounded-lg border border-input bg-background/90 font-mono p-3 text-xs leading-relaxed focus:outline-none focus:ring-2 focus:ring-primary/40 ${
-                formErrors.content ? "border-destructive focus-visible:ring-destructive/30" : ""
-              }`}
+              className={`w-full rounded-lg border border-input bg-background/90 font-mono p-3 text-xs leading-relaxed focus:outline-none focus:ring-2 focus:ring-primary/40 ${formErrors.content ? "border-destructive focus-visible:ring-destructive/30" : ""
+                }`}
             />
             {formErrors.content && (
               <p className="text-[11px] font-medium text-destructive flex items-center gap-1">
@@ -355,11 +350,10 @@ export default function PromptForm({
                     key={idx}
                     type="button"
                     onClick={() => setFormData({ ...formData, thumbnail: preset.url })}
-                    className={`group relative h-16 rounded-lg overflow-hidden border transition-all cursor-pointer ${
-                      isSelected
-                        ? "ring-2 ring-primary border-primary scale-[1.03] shadow-md"
-                        : "border-border/70 hover:opacity-90"
-                    }`}
+                    className={`group relative h-16 rounded-lg overflow-hidden border transition-all cursor-pointer ${isSelected
+                      ? "ring-2 ring-primary border-primary scale-[1.03] shadow-md"
+                      : "border-border/70 hover:opacity-90"
+                      }`}
                   >
                     <Image
                       src={preset.url}
