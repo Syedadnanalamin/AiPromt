@@ -1,5 +1,5 @@
 import React from 'react';
-import Addpromts from '@/components/dashboard/addpromts/Addpromts';
+import Addpromts from '@/components/dashboard/shared/addpromts/Addpromts';
 
 export const metadata = {
   title: 'Add New Prompt | Dashboard - PromptMatrix',
